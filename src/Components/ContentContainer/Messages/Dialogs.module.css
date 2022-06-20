@@ -1,0 +1,22 @@
+.DialogsCont{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.DialogsUserCont{
+    padding: 10px;
+}
+
+.userWrap a{
+    text-decoration: none;
+    color: black;
+}
+
+.userActiveLink{
+    color: gold;
+    text-decoration: underline;
+}
+
+.DialogsMessagesCont{
+    padding: 10px;
+}

@@ -1,0 +1,10 @@
+.Header{
+    background: indigo;
+    grid-area: h;
+    border: 1px solid #000;
+}
+
+.Header img {
+    max-width: 50px;
+    padding: 5px 0 0 5px;
+}

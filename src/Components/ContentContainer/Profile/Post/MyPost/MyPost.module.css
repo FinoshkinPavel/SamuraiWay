@@ -1,0 +1,9 @@
+.MyPostCont img{
+    height: 45px;
+    max-width: 40px;
+    border-radius: 45px;
+}
+
+.MyPostCont{
+    padding: 10px 0  0 10px;
+}
