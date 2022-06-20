@@ -4,27 +4,24 @@ import {NavBar} from "./Components/NavBar/NavBar";
 import {ContentContainer} from "./Components/ContentContainer/ContentContainer";
 import {Header} from "./Components/Header/Header";
 import {BrowserRouter} from "react-router-dom";
-import {messagesType, postType, userType} from "./TypeItems/TypeItems";
+import {rootStateType} from "./TypeItems/TypeItems";
 
-type ContentPropsType={
-    post: Array<postType>
-    user: Array<userType>
-    messages: Array<messagesType>
 
+type statePropsType = {
+    state: rootStateType
 }
 
 
-const App: React.FC<ContentPropsType> = ({
-    post, user, messages, ...restProps
-                                         }) =>{
+const App: React.FC<statePropsType> = ({
+     state, ...restProps}) =>{
     return (
         <BrowserRouter>
             <div className="App">
                 <Header/>
                 <NavBar/>
-                <ContentContainer post={post}
-                                  user={user}
-                                  messages={messages}/>
+                <ContentContainer post={state.profilePage.post}
+                                  user={state.dialogsPage.user}
+                                  messages={state.dialogsPage.messages}/>
             </div>
         </BrowserRouter>
     );

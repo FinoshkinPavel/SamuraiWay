@@ -10,19 +10,6 @@ type DialogsPropsType = {
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
-    // const [user, setUser]=useState([
-    //     {id:v1(), name: 'user1'},
-    //     {id:v1(), name: 'user2'},
-    //     {id:v1(), name: 'user3'},
-    //     {id:v1(), name: 'user4'},
-    // ])
-
-    // const [messages, setMessages]=useState([
-    //     {id: v1(), messages: 'messages1'},
-    //     {id: v1(), messages: 'messages2'},
-    //     {id: v1(), messages: 'messages3'},
-    // ])
-
     const mappedUser = props.user.map(el=>{
         return (
             <div key={el.id} className={style.userWrap}>

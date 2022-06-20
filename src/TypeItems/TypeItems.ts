@@ -9,6 +9,22 @@ export type userType = {
     name: string
 }
 export type messagesType = {
-    id:string
+    id: string
     messages: string
+}
+
+export type ProfilePageType = {
+    post: Array<postType>
+}
+export type DialogsPageType = {
+    user: Array<userType>
+    messages: Array<messagesType>
+}
+export type NavBarType = {}
+
+
+export type rootStateType = {
+    profilePage: ProfilePageType
+    dialogsPage: DialogsPageType
+    navBar: NavBarType
 }
