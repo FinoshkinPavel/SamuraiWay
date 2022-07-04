@@ -13,15 +13,16 @@ type ContentPropsType={
     post: Array<postType>
     user: Array<userType>
     messages: Array<messagesType>
+    addPost: (newPost: string)=>void
 }
 
 
 export const ContentContainer: React.FC<ContentPropsType> = ({
-    post,user,messages, ...restProps
+    post,user,messages,addPost, ...restProps
                                                              }) => {
     return (
         <div className={style.ContentContainer}>
-            <Route exact path={'/Profile'} render={()=><Profile post={post}/>}/>
+            <Route exact path={'/Profile'} render={()=><Profile post={post} addPost={addPost}/>}/>
             <Route path={'/Messages'} render={()=><Dialogs user={user} messages={messages}/>}/>
             <Route path={'/Friends'} component={Friends}/>
             <Route path={'/Gallery'} component={Gallery}/>

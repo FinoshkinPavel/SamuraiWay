@@ -9,21 +9,21 @@ import {rootStateType} from "./TypeItems/TypeItems";
 
 type statePropsType = {
     state: rootStateType
+    addPost: (newPost: string)=>void
 }
 
 
 const App: React.FC<statePropsType> = ({
-     state, ...restProps}) =>{
+     state,addPost, ...restProps}) =>{
     return (
-        <BrowserRouter>
             <div className="App">
                 <Header/>
                 <NavBar/>
                 <ContentContainer post={state.profilePage.post}
+                                  addPost={addPost}
                                   user={state.dialogsPage.user}
                                   messages={state.dialogsPage.messages}/>
             </div>
-        </BrowserRouter>
     );
 }
 

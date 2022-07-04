@@ -1,11 +1,6 @@
-import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import {reRenderEntireTree} from "./render";
 import {state} from "./Redux/state";
 
 
-
-ReactDOM.render(
-    <App state={state}/>, document.getElementById('root')
-);
+reRenderEntireTree(state)

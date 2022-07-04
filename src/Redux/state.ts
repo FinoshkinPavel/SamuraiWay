@@ -1,5 +1,6 @@
 import {v1} from "uuid";
-import {rootStateType} from '../TypeItems/TypeItems'
+import {postType, rootStateType} from '../TypeItems/TypeItems'
+import {reRenderEntireTree} from "../render";
 
 
 export let state: rootStateType = {
@@ -35,3 +36,15 @@ export let state: rootStateType = {
     navBar: {},
 }
 
+export const addPost = (newPost: string) => {
+  let post:postType = {
+      id: v1(),
+      post: newPost,
+      avatar: 'https://img5.goodfon.com/original/1951x1359/3/91/ruzhe-oruzhie-devushka.jpg',
+      likes: '0 likes'
+  }
+
+  state.profilePage.post.push(post)
+    reRenderEntireTree(state)
+    console.log(state)
+}
