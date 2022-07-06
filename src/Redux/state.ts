@@ -1,7 +1,10 @@
 import {v1} from "uuid";
 import {postType, rootStateType} from '../TypeItems/TypeItems'
-import {reRenderEntireTree} from "../render";
 
+
+let reRenderEntireTree = () => {
+    console.log('hello')
+}
 
 export let state: rootStateType = {
     profilePage: {
@@ -45,6 +48,10 @@ export const addPost = (newPost: string) => {
   }
 
   state.profilePage.post.push(post)
-    reRenderEntireTree(state)
+    reRenderEntireTree()
     console.log(state)
+}
+
+export const subscriber = (observer: ()=>void) => {
+  reRenderEntireTree = observer
 }
