@@ -1,8 +1,9 @@
 import React, {ChangeEvent, MouseEventHandler, useState} from "react";
 import style from './Post.module.css'
+import {ActionType, AddPostActionType} from "../../../../TypeItems/TypeItems";
 
 type PostPropsType = {
-    addPost: (newPost: string)=>void
+    dispatch: (action: ActionType)=>void
 }
 
 export const Post = (props: PostPropsType) => {
@@ -14,7 +15,8 @@ export const Post = (props: PostPropsType) => {
     }
 
     const onClickHandler = () => {
-        props.addPost(newPost)
+        const action:AddPostActionType = {type:'ADD-POST', newPost: newPost}
+        props.dispatch(action)
         setNewPost('')
     }
 

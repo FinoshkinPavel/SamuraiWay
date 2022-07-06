@@ -7,22 +7,23 @@ import {Friends} from "./Friends/Friends";
 import {Gallery} from "./Gallery/Gallery";
 import {Music} from "./Music/Music";
 import {messagesType, postType, userType} from "../../TypeItems/TypeItems";
+import {ActionType} from "../../TypeItems/TypeItems";
 
 
 type ContentPropsType={
     post: Array<postType>
     user: Array<userType>
     messages: Array<messagesType>
-    addPost: (newPost: string)=>void
+    dispatch: (action: ActionType)=>void
 }
 
 
 export const ContentContainer: React.FC<ContentPropsType> = ({
-    post,user,messages,addPost, ...restProps
+    post,user,messages,dispatch, ...restProps
                                                              }) => {
     return (
         <div className={style.ContentContainer}>
-            <Route exact path={'/Profile'} render={()=><Profile post={post} addPost={addPost}/>}/>
+            <Route exact path={'/Profile'} render={()=><Profile post={post} dispatch={dispatch}/>}/>
             <Route path={'/Messages'} render={()=><Dialogs user={user} messages={messages}/>}/>
             <Route path={'/Friends'} component={Friends}/>
             <Route path={'/Gallery'} component={Gallery}/>

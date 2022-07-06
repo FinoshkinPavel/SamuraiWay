@@ -1,8 +1,9 @@
 import {v1} from "uuid";
-import {postType, rootStateType} from '../TypeItems/TypeItems'
+import {postType, StoreType} from '../TypeItems/TypeItems'
 
 
-export let store = {
+
+export let store: StoreType = {
     _state: {
         profilePage: {
             post: [
@@ -35,9 +36,26 @@ export let store = {
         },
         navBar: {},
     },
+
     getState(){ return this._state },
-    _callSubscriber(){ console.log('hello') },
-    addPost(newPost: string) {
+    _callSubscriber(){},
+    subscriber(observer){ this._callSubscriber = observer },
+
+    dispatch(action){
+        if(action.type === 'ADD-POST'){
+            let post:postType = {
+                id: v1(),
+                post: action.newPost,
+                avatar: 'https://img5.goodfon.com/original/1951x1359/3/91/ruzhe-oruzhie-devushka.jpg',
+                likes: '0 likes'
+            }
+
+            this._state.profilePage.post.push(post)
+            this._callSubscriber()
+            console.log(this._state)
+        }
+    },
+    addPost(newPost) {
         let post:postType = {
             id: v1(),
             post: newPost,
@@ -49,7 +67,6 @@ export let store = {
         this._callSubscriber()
         console.log(this._state)
     },
-    subscriber(observer: ()=>void){ this._callSubscriber = observer },
 }
 
 
