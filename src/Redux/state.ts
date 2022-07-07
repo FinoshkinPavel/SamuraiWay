@@ -1,5 +1,5 @@
 import {v1} from "uuid";
-import {postType, StoreType} from '../TypeItems/TypeItems'
+import {AddPostActionType, postType, StoreType} from '../TypeItems/TypeItems'
 
 
 
@@ -69,7 +69,9 @@ export let store: StoreType = {
     },
 }
 
-
+export const addNewPostAC  = (newPost: string): AddPostActionType => {
+    return {type:'ADD-POST', newPost: newPost}
+}
 
 
 
