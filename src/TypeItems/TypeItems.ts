@@ -1,5 +1,7 @@
 
 //CONTENT-DATA-STATE
+import {addMessageAC, addNewPostAC, ChangeMessageBodyAC} from "../Redux/state";
+
 export type postType = {
     id: string
     post: string
@@ -22,6 +24,7 @@ export type ProfilePageType = {
 export type DialogsPageType = {
     user: Array<userType>
     messages: Array<messagesType>
+    messagesBody: string
 }
 export type NavBarType = {}
 
@@ -43,10 +46,12 @@ export type StoreType = {
 }
 
 //TYPE-ACTION-FORE-DISPATCH
-export type ActionType = AddPostActionType
+export type ActionType = AddPostActionType | AddMessageActionType | ChangeMessageBodyActionType
 
-export type AddPostActionType = {
-    type: 'ADD-POST'
-    newPost: string
-}
+export type AddPostActionType = ReturnType<typeof addNewPostAC>
+
+export type ChangeMessageBodyActionType = ReturnType<typeof ChangeMessageBodyAC>
+
+export type AddMessageActionType = ReturnType<typeof addMessageAC>
+
 

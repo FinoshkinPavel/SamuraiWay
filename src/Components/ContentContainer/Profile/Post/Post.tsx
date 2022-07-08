@@ -19,7 +19,7 @@ export const Post = (props: PostPropsType) => {
     }
 
     const onClickHandler = () => {
-        // const action:AddPostActionType = {type:'ADD-POST', newPost: newPost}
+
         let action = addNewPostAC(newPost)
         props.dispatch(action)
         setNewPost('')

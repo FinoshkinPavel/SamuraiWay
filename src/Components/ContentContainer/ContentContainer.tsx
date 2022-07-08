@@ -24,7 +24,7 @@ export const ContentContainer: React.FC<ContentPropsType> = ({
     return (
         <div className={style.ContentContainer}>
             <Route exact path={'/Profile'} render={()=><Profile post={post} dispatch={dispatch}/>}/>
-            <Route path={'/Messages'} render={()=><Dialogs user={user} messages={messages}/>}/>
+            <Route path={'/Messages'} render={()=><Dialogs user={user} messages={messages} dispatch={dispatch}/>}/>
             <Route path={'/Friends'} component={Friends}/>
             <Route path={'/Gallery'} component={Gallery}/>
             <Route path={'/Music'} component={Music}/>
