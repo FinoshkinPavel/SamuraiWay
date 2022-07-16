@@ -3,26 +3,26 @@ import './App.css';
 import {NavBar} from "./Components/NavBar/NavBar";
 import {ContentContainer} from "./Components/ContentContainer/ContentContainer";
 import {Header} from "./Components/Header/Header";
-import {StoreType} from "./TypeItems/TypeItems";
+import {rootStateType, StoreType} from "./TypeItems/TypeItems";
+import {ActionType} from "./TypeItems/ReducerType";
 
 
 type PropsType = {
-    store: StoreType
+    state: rootStateType
+    dispatch: (action: ActionType)=>void
 }
 
 
 const App: React.FC<PropsType> = (props) =>{
 
-    let state = props.store.getState()
-
     return (
             <div className="App">
                 <Header/>
                 <NavBar/>
-                <ContentContainer post={state.profilePage.post}
-                                  dispatch={props.store.dispatch.bind(props.store)}
-                                  user={state.dialogsPage.user}
-                                  messages={state.dialogsPage.messages}/>
+                <ContentContainer post={props.state.profilePage.post}
+                                  dispatch={props.dispatch}
+                                  user={props.state.dialogsPage.user}
+                                  messages={props.state.dialogsPage.messages}/>
             </div>
     );
 }

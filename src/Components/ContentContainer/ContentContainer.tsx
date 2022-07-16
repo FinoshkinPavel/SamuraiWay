@@ -7,7 +7,7 @@ import {Friends} from "./Friends/Friends";
 import {Gallery} from "./Gallery/Gallery";
 import {Music} from "./Music/Music";
 import {messagesType, postType, userType} from "../../TypeItems/TypeItems";
-import {ActionType} from "../../TypeItems/TypeItems";
+import {ActionType} from "../../TypeItems/ReducerType";
 
 
 type ContentPropsType={

@@ -2,7 +2,7 @@ import style from "../ContentContainer.module.css";
 import {Post} from "./Post/Post";
 import {MyPost} from "./Post/MyPost/MyPost";
 import {postType} from "../../../TypeItems/TypeItems";
-import {ActionType} from "../../../TypeItems/TypeItems";
+import {ActionType} from "../../../TypeItems/ReducerType";
 
 type PostPropsType={
     post: Array<postType>
