@@ -1,8 +1,27 @@
-import {postType, ProfilePageType} from "../TypeItems/TypeItems";
+import {PostType, ProfilePageType} from "../TypeItems/TypeItems";
 import {v1} from "uuid";
 import {ActionType} from "../TypeItems/ReducerType";
 
-export  const profileReducer = (state: ProfilePageType , action: ActionType): ProfilePageType => {
+let initialState = {
+        post: [
+            {
+                id: v1(),
+                post: 'Hi it`s my first post!',
+                avatar: 'https://img5.goodfon.com/original/1951x1359/3/91/ruzhe-oruzhie-devushka.jpg',
+                likes: '5 likes'
+            },
+            {
+                id: v1(),
+                post: 'How are you?',
+                avatar: 'https://img5.goodfon.com/original/1951x1359/3/91/ruzhe-oruzhie-devushka.jpg',
+                likes: '12 likes'
+            },
+        ],
+        textPostBody: '',
+    }
+
+
+export  const profileReducer = (state:ProfilePageType = initialState , action: ActionType): ProfilePageType => {
     switch (action.type) {
         case "CHANGE-POST-TEXT-BODY":{
             state.textPostBody = action.payload.newTextPostBody

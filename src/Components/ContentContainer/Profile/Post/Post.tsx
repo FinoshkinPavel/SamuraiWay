@@ -1,22 +1,23 @@
 import React, {ChangeEvent} from "react";
 import style from './Post.module.css'
-import {ActionType} from "../../../../TypeItems/ReducerType";
-import {addNewPostAC, changePostTextBodyAC} from "../../../../Redux/ProfileReducer";
+import {MyPost} from "./MyPost/MyPost";
+import {PostType} from "../../../../TypeItems/TypeItems";
+
 
 type PostPropsType = {
-    dispatch: (action: ActionType) => void
+    post: Array<PostType>
+    changePostTextBody: (newPostText: string)=>void
+    addNewPost: ()=>void
 }
 
 
 export const Post = (props: PostPropsType) => {
     const changePostValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const action = changePostTextBodyAC(e.currentTarget.value)
-        props.dispatch(action)
+        props.changePostTextBody(e.currentTarget.value)
     }
 
     const onClickHandler = () => {
-        let action = addNewPostAC()
-        props.dispatch(action)
+        props.addNewPost()
     }
 
 
@@ -28,6 +29,7 @@ export const Post = (props: PostPropsType) => {
                     <img src="https://img5.goodfon.com/original/1951x1359/3/91/ruzhe-oruzhie-devushka.jpg" alt=""/>
                     <input  onChange={changePostValueHandler}/>
                     <button onClick={onClickHandler}>add</button>
+                    <MyPost post={props.post}/>
                 </div>
             </div>
         </div>

@@ -1,27 +1,21 @@
 import style from "../ContentContainer.module.css";
-import {Post} from "./Post/Post";
-import {MyPost} from "./Post/MyPost/MyPost";
-import {postType} from "../../../TypeItems/TypeItems";
-import {ActionType} from "../../../TypeItems/ReducerType";
+import {PostType} from "../../../TypeItems/TypeItems";
+import {PostContainer} from "./Post/PostContainer";
+import {AppStoreType} from "../../../Redux/redux-store";
 
-type PostPropsType={
-    post: Array<postType>
-    dispatch: (action: ActionType)=>void
+type StorePropsType = {
+    store: AppStoreType
 }
 
-
-export const Profile = (props: PostPropsType) => {
+export const Profile = (props: StorePropsType) => {
 
 
 
     return (
         <div>
             <div className={style.WallPaper}></div>
-            <Post
-                dispatch={props.dispatch}
-            />
-            <MyPost
-                post={props.post}
+            <PostContainer
+                store={props.store}
             />
         </div>
 

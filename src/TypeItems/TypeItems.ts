@@ -3,50 +3,44 @@
 
 import {ActionType} from "./ReducerType";
 
-export type postType = {
+export type PostType = {
     id: string
     post: string
     avatar: string
     likes: string
 }
-export type userType = {
+export type UserType = {
     id: string
     name: string
 }
-export type messagesType = {
+export type MessagesType = {
     id: string
     messages: string
 }
 
 //CONTENT-STATE
 export type ProfilePageType = {
-    post: Array<postType>
+    post: Array<PostType>
     textPostBody: string
 }
 export type DialogsPageType = {
-    user: Array<userType>
-    messages: Array<messagesType>
+    user: Array<UserType>
+    messages: Array<MessagesType>
     messagesBodyText: string
 }
-export type NavBarType = {}
 
 // ROOT-STATE
-export type rootStateType = {
+export type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
-    navBar: NavBarType
 }
 
 //STORE-TYPE
-export type StoreType = {
-    _state: rootStateType
-    getState: ()=>rootStateType
-    _callSubscriber: (observer: any)=>void
-    subscriber: (observer: (state: rootStateType)=>void)=>void
-    dispatch: (action:ActionType)=>void
-}
+export type StoreType =  {
+    state: RootStateType
+    }
 
-//TYPE-ACTION-FORE-DISPATCH
+
 
 
 

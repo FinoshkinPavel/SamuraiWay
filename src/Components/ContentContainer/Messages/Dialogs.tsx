@@ -1,27 +1,23 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent} from "react";
 import style from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
-import {ActionType} from "../../../TypeItems/ReducerType";
-import {addMessageAC, ChangeMessageBodyAC} from "../../../Redux/DialogsReducer";
-import {messagesType, userType} from "../../../TypeItems/TypeItems";
+import {MessagesType, UserType} from "../../../TypeItems/TypeItems";
 
 type DialogsPropsType = {
-    user: Array<userType>
-    messages: Array<messagesType>
-    dispatch: (action: ActionType) => void
+    user: Array<UserType>
+    messages: Array<MessagesType>
+    changeMessageTextBody: (newTextMessageBody:string)=>void
+    addMessage:()=>void
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
 
     const changeMessageTextHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        let action = ChangeMessageBodyAC(e.currentTarget.value)
-        props.dispatch(action)
+        props.changeMessageTextBody(e.currentTarget.value)
     }
     const clickAddMessageHandler = () => {
-      let action = addMessageAC()
-         props.dispatch(action)
-
+      props.addMessage()
     }
 
     const mappedUser = props.user.map(el=>{

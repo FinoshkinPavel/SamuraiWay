@@ -6,25 +6,21 @@ import {Dialogs} from "./Messages/Dialogs";
 import {Friends} from "./Friends/Friends";
 import {Gallery} from "./Gallery/Gallery";
 import {Music} from "./Music/Music";
-import {messagesType, postType, userType} from "../../TypeItems/TypeItems";
-import {ActionType} from "../../TypeItems/ReducerType";
+import {AppStoreType} from "../../Redux/redux-store";
+import {DialogsContainer} from "./Messages/DialogsContainer";
 
 
-type ContentPropsType={
-    post: Array<postType>
-    user: Array<userType>
-    messages: Array<messagesType>
-    dispatch: (action: ActionType)=>void
+
+type StorePropsType = {
+    store: AppStoreType
 }
 
 
-export const ContentContainer: React.FC<ContentPropsType> = ({
-    post,user,messages,dispatch, ...restProps
-                                                             }) => {
+export const ContentContainer: React.FC<StorePropsType> = (props) => {
     return (
         <div className={style.ContentContainer}>
-            <Route exact path={'/Profile'} render={()=><Profile post={post} dispatch={dispatch}/>}/>
-            <Route path={'/Messages'} render={()=><Dialogs user={user} messages={messages} dispatch={dispatch}/>}/>
+            <Route exact path={'/Profile'} render={()=><Profile store={props.store} />}/>
+            <Route path={'/Messages'} render={()=><DialogsContainer store={props.store}/>}/>
             <Route path={'/Friends'} component={Friends}/>
             <Route path={'/Gallery'} component={Gallery}/>
             <Route path={'/Music'} component={Music}/>
