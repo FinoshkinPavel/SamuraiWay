@@ -11,12 +11,12 @@ type StorePropsType = {
 }
 
 
-const App: React.FC<StorePropsType> = (props) =>{
+const App: React.FC = () =>{
     return (
             <div className="App">
                 <Header/>
                 <NavBar/>
-                <ContentContainer store={props.store}/>
+                <ContentContainer/>
             </div>
     );
 }

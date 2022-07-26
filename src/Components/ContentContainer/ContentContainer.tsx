@@ -16,11 +16,11 @@ type StorePropsType = {
 }
 
 
-export const ContentContainer: React.FC<StorePropsType> = (props) => {
+export const ContentContainer: React.FC = () => {
     return (
         <div className={style.ContentContainer}>
-            <Route exact path={'/Profile'} render={()=><Profile store={props.store} />}/>
-            <Route path={'/Messages'} render={()=><DialogsContainer store={props.store}/>}/>
+            <Route exact path={'/Profile'} render={()=><Profile/>}/>
+            <Route path={'/Messages'} render={()=><DialogsContainer/>}/>
             <Route path={'/Friends'} component={Friends}/>
             <Route path={'/Gallery'} component={Gallery}/>
             <Route path={'/Music'} component={Music}/>

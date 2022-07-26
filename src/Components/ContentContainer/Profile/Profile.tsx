@@ -7,16 +7,14 @@ type StorePropsType = {
     store: AppStoreType
 }
 
-export const Profile = (props: StorePropsType) => {
+export const Profile = () => {
 
 
 
     return (
         <div>
             <div className={style.WallPaper}></div>
-            <PostContainer
-                store={props.store}
-            />
+            <PostContainer/>
         </div>
 
     )

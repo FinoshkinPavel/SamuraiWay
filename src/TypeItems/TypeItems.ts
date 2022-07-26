@@ -36,7 +36,7 @@ export type RootStateType = {
 }
 
 //STORE-TYPE
-export type StoreType =  {
+export type StoreType = {
     state: RootStateType
     }
 
