@@ -3,13 +3,8 @@ import {addNewPostAC, changePostTextBodyAC} from "../../../../Redux/ProfileReduc
 import {Post} from "./Post";
 import {AppStoreType} from "../../../../Redux/redux-store";
 import {connect} from "react-redux";
-import {PostType, ProfilePageType} from "../../../../TypeItems/TypeItems";
+import {PostType} from "../../../../TypeItems/TypeItems";
 import {Dispatch} from "redux";
-
-type StorePropsType = {
-    store: AppStoreType
-}
-
 
 
 type MapStateToPropsType = {

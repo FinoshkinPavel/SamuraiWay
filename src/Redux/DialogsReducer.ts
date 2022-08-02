@@ -2,7 +2,7 @@ import {DialogsPageType, MessagesType} from "../TypeItems/TypeItems";
 import {ActionType} from "../TypeItems/ReducerType";
 import {v1} from "uuid";
 
-let initialState = {
+let initialState: DialogsPageType = {
     user: [
         {id: v1(), name: 'user1'},
         {id: v1(), name: 'user2'},
@@ -17,7 +17,7 @@ let initialState = {
     messagesBodyText: '',
 }
 
-export const dialogsReducer = (state: DialogsPageType = initialState , action: ActionType): DialogsPageType => {
+export const dialogsReducer = (state = initialState , action: ActionType): DialogsPageType => {
     switch (action.type){
         case "CHANGE-MESSAGE-BODY":{
             return {...state, messagesBodyText: action.payload.messageBody}

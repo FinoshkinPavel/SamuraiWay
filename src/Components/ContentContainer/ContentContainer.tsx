@@ -2,18 +2,15 @@ import React from 'react';
 import style from './ContentContainer.module.css'
 import {Route} from "react-router-dom";
 import {Profile} from "./Profile/Profile";
-import {Dialogs} from "./Messages/Dialogs";
 import {Friends} from "./Friends/Friends";
 import {Gallery} from "./Gallery/Gallery";
 import {Music} from "./Music/Music";
-import {AppStoreType} from "../../Redux/redux-store";
 import {DialogsContainer} from "./Messages/DialogsContainer";
+import {FindUsersContainer} from "./Users/FindUsersContainer";
 
 
 
-type StorePropsType = {
-    store: AppStoreType
-}
+
 
 
 export const ContentContainer: React.FC = () => {
@@ -24,6 +21,7 @@ export const ContentContainer: React.FC = () => {
             <Route path={'/Friends'} component={Friends}/>
             <Route path={'/Gallery'} component={Gallery}/>
             <Route path={'/Music'} component={Music}/>
+            <Route path={'/FindUsers'} component={FindUsersContainer}/>
         </div>
     );
 };

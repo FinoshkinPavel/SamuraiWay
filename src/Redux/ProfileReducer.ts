@@ -1,8 +1,8 @@
-import {PostType, ProfilePageType} from "../TypeItems/TypeItems";
+import {ProfilePageType} from "../TypeItems/TypeItems";
 import {v1} from "uuid";
 import {ActionType} from "../TypeItems/ReducerType";
 
-let initialState = {
+let initialState:ProfilePageType = {
         post: [
             {
                 id: v1(),
@@ -21,7 +21,7 @@ let initialState = {
     }
 
 
-export  const profileReducer = (state:ProfilePageType = initialState , action: ActionType): ProfilePageType => {
+export  const profileReducer = (state = initialState , action: ActionType): ProfilePageType => {
     switch (action.type) {
         case "CHANGE-POST-TEXT-BODY":{
             state.textPostBody = action.payload.newTextPostBody

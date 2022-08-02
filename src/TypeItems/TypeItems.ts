@@ -1,8 +1,6 @@
 
 //CONTENT-DATA-STATE
 
-import {ActionType} from "./ReducerType";
-
 export type PostType = {
     id: string
     post: string
@@ -17,6 +15,14 @@ export type MessagesType = {
     id: string
     messages: string
 }
+export type FindUserType = {
+    id: string
+    followed: boolean
+    name: string
+    avatar: string
+    status: string
+    location: {city: string, country: string}
+}
 
 //CONTENT-STATE
 export type ProfilePageType = {
@@ -28,17 +34,11 @@ export type DialogsPageType = {
     messages: Array<MessagesType>
     messagesBodyText: string
 }
-
-// ROOT-STATE
-export type RootStateType = {
-    profilePage: ProfilePageType
-    dialogsPage: DialogsPageType
+export type FindUsersPageType = {
+    users : Array<FindUserType>
 }
 
-//STORE-TYPE
-export type StoreType = {
-    state: RootStateType
-    }
+
 
 
 

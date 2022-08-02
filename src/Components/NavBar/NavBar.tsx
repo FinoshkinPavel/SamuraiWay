@@ -12,6 +12,7 @@ export const NavBar = () => {
             <div><NavLink to="/Friends" activeClassName={style.ActiveLink}>Friends</NavLink></div>
             <div><NavLink to="/Gallery" activeClassName={style.ActiveLink}>Gallery</NavLink></div>
             <div><NavLink to="/Music" activeClassName={style.ActiveLink}>Music</NavLink></div>
+            <div><NavLink to={"/FindUsers"} activeClassName={style.ActiveLink}>Find Users</NavLink></div>
         </nav>
     );
 };
